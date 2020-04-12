@@ -5,7 +5,7 @@
       <div class="mt-1">Loading</div>
     </div>
     <div v-else>
-      <div v-if="deployable" class="flex items-center justify-between">
+      <div v-if="!deployable" class="flex items-center justify-between">
         <div class="pr-4">
           <h2 class="font-bold">{{ lang.heading }}</h2>
           <p v-if="!busy" class="my-1 text-sm text-grey">{{ lang.text }}</p>
