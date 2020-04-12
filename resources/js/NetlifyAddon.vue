@@ -91,7 +91,7 @@ import NetlifySite from './NetlifySite'
       },
 
       deployable() {
-        return this.site.published_deploy.commit_ref == this.hash
+        return this.site.published_deploy.commit_ref != this.hash
       },
     },
 
