@@ -1,6 +1,6 @@
 <?php
 
-namespace Davidsneal\Trigger\Http\Controllers;
+namespace Davidsneal\Netlify\Http\Controllers;
 
 use Statamic\Http\Controllers\Controller;
 

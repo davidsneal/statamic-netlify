@@ -1,16 +1,16 @@
 {
-    "name": "davidsneal/trigger",
-    "description": "A simple URL Trigger for Statamic v3.",
+    "name": "davidsneal/netlify",
+    "description": "A basic Netlify addon for Statamic v3.",
     "keywords": [
         "Statamic",
         "Addon",
-        "Trigger"
+        "Netlify"
     ],
     "type": "statamic-addon",
     "license": "MIT",
     "autoload": {
         "psr-4": {
-            "Davidsneal\\Trigger\\": "src"
+            "Davidsneal\\Netlify\\": "src"
         }
     },
     "authors": [
@@ -27,12 +27,12 @@
     "extra": {
         "laravel": {
             "providers": [
-                "Davidsneal\\Trigger\\ServiceProvider"
+                "Davidsneal\\Netlify\\ServiceProvider"
             ]
         },
         "statamic": {
-            "name": "Trigger",
-            "description": "Trigger a deployment via POST"
+            "name": "Netlify",
+            "description": "View latest deploys and trigger a new deployment in Netlify"
         }
     }
 }

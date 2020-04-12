@@ -1,5 +1,5 @@
-import TriggerAddon from './TriggerAddon.vue';
+import NetlifyAddon from './NetlifyAddon.vue';
 
 Statamic.booting(() => {
-    Statamic.$components.register('trigger-addon', TriggerAddon)
+    Statamic.$components.register('netlify-addon', NetlifyAddon)
 })

@@ -8,10 +8,13 @@ return [
         'heading' => 'Deploy Site',
         'failed' => 'Deployment request failed',
         'firing' => 'Deploying',
-        'success' => 'Deployment trigger successful',
-        'text' => 'Trigger a deployment of your site.',
+        'success' => 'Deployment netlify successful',
+        'text' => 'Netlify a deployment of your site.',
     ],
     'failed' => 'Deployment request failed',
-    'name' => 'Deploy',
+    'name' => 'Netlify',
+    'netlify' => [
+        'failed' => 'Failed to retrieve Netlify site'
+    ],
     'permission' => 'Deploy Site',
 ];

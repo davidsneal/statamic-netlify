@@ -1,6 +1,6 @@
 <?php
 
-namespace Davidsneal\Trigger;
+namespace Davidsneal\Netlify;
 
 use Statamic\Providers\AddonServiceProvider;
 use Statamic\Facades\CP\Nav;
@@ -20,18 +20,22 @@ class ServiceProvider extends AddonServiceProvider
     {
         parent::boot();
 
-        $this->loadViewsFrom(__DIR__.'/../resources/views', 'trigger');
-        $this->mergeConfigFrom(__DIR__ . '/../config/trigger.php', 'trigger');
-        $this->loadTranslationsFrom(__DIR__ . '/../resources/lang', 'trigger');
+        $this->loadViewsFrom(__DIR__.'/../resources/views', 'netlify');
+        $this->mergeConfigFrom(__DIR__ . '/../config/netlify.php', 'netlify');
+        $this->loadTranslationsFrom(__DIR__ . '/../resources/lang', 'netlify');
 
         if ($this->app->runningInConsole()) {
             $this->publishes([
-                __DIR__.'/../resources/lang' => resource_path('lang/vendor/davidsneal/trigger/'),
-            ], 'Statamic Trigger Lang File');
+                __DIR__.'/../resources/lang' => resource_path('lang/vendor/davidsneal/netlify/'),
+            ], 'lang');
 
             $this->publishes([
-                __DIR__.'/../config/trigger.php' => config_path('trigger.php'),
-            ], 'Statamic Trigger Config File');
+                __DIR__.'/../config/netlify.php' => config_path('netlify.php'),
+            ], 'config');
+
+            $this->publishes([
+                __DIR__.'/../dist' => public_path('vendor/davidsneal/netlify'),
+            ], 'public');
         }
 
         $this->bootNavigation();
@@ -41,19 +45,19 @@ class ServiceProvider extends AddonServiceProvider
     private function bootNavigation(): void
     {
         Nav::extend(function($nav) {
-            $nav->create(__('trigger::lang.name'))
-                ->icon(config('trigger.icon'))
+            $nav->create(__('netlify::lang.name'))
+                ->icon(config('netlify.icon'))
                 ->section('Tools')
-                ->route(config('trigger.path').'.index')
-                ->can('use trigger');
+                ->route(config('netlify.path').'.index')
+                ->can('use netlify');
         });
     }
 
     private function bootPermissions() {
         $this->app->booted(function () {
-            Permission::group('trigger', __('trigger::lang.name'), function () {
-                Permission::register('use trigger')
-                    ->label(__('trigger::lang.permission'));
+            Permission::group('netlify', __('netlify::lang.name'), function () {
+                Permission::register('use netlify')
+                    ->label(__('netlify::lang.permission'));
             });
         });
     }
